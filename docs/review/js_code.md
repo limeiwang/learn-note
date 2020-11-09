@@ -1,82 +1,53 @@
 # 各种手写代码实现
-
 ---
-引用拷贝
+函数防抖
 ---
 ``` js
-var obj = {
-    name: 'baidu',
-    arr: ['a', 'b', 'c']
-}
-var obj2 = obj;
-var arr = obj.arr;
+function debounce(func, delay) {
+    let timeout;
+    return function(e) {
+        clearTimeout(timeout);
+        let context = this, args = arguments;
+        timeout = setTimeout(function() {
+            func.apply(context, args);
+        }, delay);
+    };
+};
 
-obj2.arr = ['a', 'b', 'c', 'd'];
-obj2.name = 'lili';
-
-console.log(arr); // ["a", "b", "c"]
-console.log(obj.name); // 'lili'
-console.log(obj === obj2); // true
-console.log(obj.arr === obj2.arr); // true
-console.log(obj.arr === arr); // false
-
+let validate = debounce(function(event) {
+    console.log('change:', event);
+}, 300);
 ```
+
 ---
-闭包
+函数截流
 ---
 ``` js
-var MAP = {
-    onclick: function() {
-
-    },
-    curry: function(val) {
-        return function(z) {
-            return val++ + z;
-        }
+function throttle(fn, threshhold) {
+ var timeout
+ var start = new Date;
+ var threshhold = threshhold || 160
+ return function () {
+ var context = this, args = arguments, curr = new Date() - 0
+ 
+ clearTimeout(timeout)//总是干掉事件回调
+ if(curr - start >= threshhold){ 
+     console.log("now", curr, curr - start)//注意这里相减的结果，都差不多是160左右
+     fn.apply(context, args) //只执行一部分方法，这些方法是在某个时间段内执行一次
+     start = curr
+ }else{
+ //让方法在脱离事件后也能执行一次
+     timeout = setTimeout(function(){
+        fn.apply(context, args) 
+     }, threshhold);
     }
-};
-
-var getInfo = function(val) {
-    return MAP[val];
+  }
 }
-var fn = getInfo('curry');
-
-var a = fn(100);
-
-console.log(a(200)); // 300
-console.log(a(300)); // 401
-console.log(fn(100)(200)); // 300
-console.log(getInfo('curry')(100)(300)); // 400
-```
----
-原型链
----
-``` js
-var name = 'oop';
-var Person = function(options) {
-    this.name = options.name;
-};
-Person.prototype.name = 'Person';
-Person.prototype.getName = function() {
-    return this.name;
-};
-
-var p = new Person({name: 'lili'});
-
-console.log(p.constructor === Person);// true
-console.log(p instanceof Person);// true
-console.log(p.__proto__ === Person.prototype);// true
-
-console.log(p.hasOwnProperty('name')); // true
-console.log(p.hasOwnProperty('getName')); // false
-
-var getName = p.getName;
-
-console.log(getName === Person.prototype.getName); // true
-console.log(getName()); // 'opp'
-
-console.log(Person.prototype.getName()); // 'Person'
-console.log(p.getName); // 'lili'
+var mousemove = throttle(function(e) {
+ console.log(e.pageX, e.pageY)
+});
+// 绑定监听
+document.querySelector("#panel").addEventListener('mousemove', mousemove);
 ```
 
 ---
@@ -194,4 +165,82 @@ console.log(p.getName); // 'lili'
         return res;  
     };  
 })(window); 
+```
+---
+引用拷贝
+---
+``` js
+var obj = {
+    name: 'baidu',
+    arr: ['a', 'b', 'c']
+}
+var obj2 = obj;
+var arr = obj.arr;
+
+obj2.arr = ['a', 'b', 'c', 'd'];
+obj2.name = 'lili';
+
+console.log(arr); // ["a", "b", "c"]
+console.log(obj.name); // 'lili'
+console.log(obj === obj2); // true
+console.log(obj.arr === obj2.arr); // true
+console.log(obj.arr === arr); // false
+
+```
+---
+闭包
+---
+``` js
+var MAP = {
+    onclick: function() {
+
+    },
+    curry: function(val) {
+        return function(z) {
+            return val++ + z;
+        }
+    }
+};
+
+var getInfo = function(val) {
+    return MAP[val];
+}
+var fn = getInfo('curry');
+
+var a = fn(100);
+
+console.log(a(200)); // 300
+console.log(a(300)); // 401
+console.log(fn(100)(200)); // 300
+console.log(getInfo('curry')(100)(300)); // 400
+```
+---
+原型链
+---
+``` js
+var name = 'oop';
+var Person = function(options) {
+    this.name = options.name;
+};
+Person.prototype.name = 'Person';
+Person.prototype.getName = function() {
+    return this.name;
+};
+
+var p = new Person({name: 'lili'});
+
+console.log(p.constructor === Person);// true
+console.log(p instanceof Person);// true
+console.log(p.__proto__ === Person.prototype);// true
+
+console.log(p.hasOwnProperty('name')); // true
+console.log(p.hasOwnProperty('getName')); // false
+
+var getName = p.getName;
+
+console.log(getName === Person.prototype.getName); // true
+console.log(getName()); // 'opp'
+
+console.log(Person.prototype.getName()); // 'Person'
+console.log(p.getName); // 'lili'
 ```
