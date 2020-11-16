@@ -226,7 +226,7 @@ document.querySelector("#panel").addEventListener('mousemove', mousemove);
 })(window); 
 ```
 ---
-面试题
+浅拷贝
 ---
 ``` js
 var obj = {
