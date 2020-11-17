@@ -83,7 +83,7 @@
 				});
 			}
 
-      // 订阅
+            // 订阅
 			_pushWatcher(watcher) {
 				if (!this.$dep[watcher.key]) {
 					this.$dep[watcher.key] = [];
@@ -131,7 +131,7 @@
 			}
 		}
 
-    // 使用
+        // 使用
 		var app = new Vue({
 			el: '#app',
 			data: {
