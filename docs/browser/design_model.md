@@ -134,3 +134,90 @@ console.log(
     popupSingleton('bbb').innerHTML
 ); // aaa  aaa  aaa
 ```
+
+### 工厂模式
+
+> 一个工厂(类) 能生产各种零件(实例)
+
+##### 简单的工厂模式
+
+通过一个类获取不同类的实例
+
+```
+    class Cat {}
+    class Dog {}
+    class Pig {}
+    
+    function Factory(type, args) {
+        switch (type){
+            case 'cat':
+                return new Cat(args);
+                break;
+            case 'dog':
+                return new Dog(args);
+                break;
+            default:
+                return new Pig(args);
+                break;
+        }
+    }
+    
+    const cat = new Factory('cat', {name: 'cat'});
+    const dog = new Factory('dog', {name: 'dog'});
+    const pig = new Factory('pig', {name: 'pig'});
+    
+    console.log(cat, dog, pig)
+```
+
+
+##### 抽象工厂模式
+
+通过继承抽象的类（含有未实现的方法）、结合简单工厂模式，生成抽象工厂
+
+抽象工厂的好处：通用方法写在工厂函数中，不需要重复实现，不同个性化代码在子类中实现
+
+实现：省略...
+
+
+##### 复杂工厂模式
+
+允许工厂产生的不同零件一起工作：
+
+```
+    class Wheel {
+        turn() {
+            console.log('轮子开始转动啦');
+        }
+    }
+    
+    class Oil {
+        warn() {
+            console.log('汽油不足')
+        }
+    }
+    
+    class Cart {
+        constructor() {
+            this.cart = {}
+        }
+        
+        getPart(name, args) {
+            return this.cart[name] ? new this.cart[name](args) : null;
+        }
+        
+        setPart(name, Part) {
+            this.cart[name] = Part;
+        }
+    }
+    
+    const cart = new Cart();
+    
+    cart.setPart('wheel', Wheel)
+    cart.setPart('oil', Oil)
+    
+    const wheel = cart.getPart('wheel', {name: '轮子A'});
+    const oil = cart.getPart('oil', {name: '汽油A'});
+    
+    wheel.turn();
+    oil.warn();
+```

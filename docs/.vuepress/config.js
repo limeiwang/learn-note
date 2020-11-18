@@ -141,6 +141,10 @@ module.exports = {
                         title: '面试问题',   // 必要的
                         path: '/other/interview',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
                     },
+                    {
+                        title: 'node经验包',   // 必要的
+                        path: '/other/node',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                    },
                 ]
             },
             '/Node', 
