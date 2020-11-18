@@ -143,7 +143,7 @@ console.log(
 
 通过一个类获取不同类的实例
 
-```
+``` js
     class Cat {}
     class Dog {}
     class Pig {}
@@ -183,7 +183,7 @@ console.log(
 
 允许工厂产生的不同零件一起工作：
 
-```
+``` js
     class Wheel {
         turn() {
             console.log('轮子开始转动啦');
