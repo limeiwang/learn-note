@@ -1,5 +1,7 @@
 # 关于Http
 
+### 什么是http？**超文本传输协议**，它是一个**应用层**协议。
+
 HTTP（HyperText Transfer Protocol）协议是基于TCP的应用层协议，它不关心数据传输的细节，主要是用来规定客户端和服务端的数据传输格式，最初是用来向客户端传输HTML页面的内容。默认端口是80。
 
 ### HTTP 0.9版本  1991年
@@ -18,8 +20,76 @@ HTTP（HyperText Transfer Protocol）协议是基于TCP的应用层协议，它�
 ### HTTPS
 HTTPS是http协议的安全版本，http协议的数据传输是明文的，是不安全的，HTTPS使用了SSL/TLS协议进行了加密处理。
 
+### http特点：
+* 无状态的协议，无状态就是客户端的每次请求都没有关系，它们是独立的。
+* 只能是客户端发起请求，服务器响应。服务器不能主动向客户端传递消息。
+* 底层是基于TCP实现的。
+
+### http报文分为请求报文和响应报文
+
+* 请求报文：它会向Web服务器请求一个动作。
+    * 请求报文由请求行（request line）、请求头部（header）、空行和请求数据4个部分组成
+* 响应报文：它会将请求的结果返回给客户端。
+    * 响应报文由三个部分组成，分别是：状态行、消息报头、响应正文。
+
+### 前端要重点知道的知识
+
+#### 1.URL（统一资源标识符）
+
+一种特殊类型的URI，包含协议、域名、端口，可能包含虚拟目录、文件名、锚、参数。其中协议，域名，端口一部分不一样，就是跨域。
+
+#### 2.Request Method（请求方式）：
+
+GET，POST，HEAD，PUT，DELETE，CONNECT，OPTIONS，TRACE。常用就是GET,POST，注意它们的区别。
+
+#### 3.状态码：
+* 1xx：指示信息--表示请求已接收，继续处理。
+
+* 2xx：成功--表示请求已被成功接收、理解、接受。
+
+* 3xx：重定向--要完成请求必须进行更进一步的操作。
+
+* 4xx：客户端错误--请求有语法错误或请求无法实现。
+
+* 5xx：服务器端错误--服务器未能实现合法的请求。
+
+**常见状态码**
+
+* 200 OK：客户端请求成功。
+
+* 400 Bad Request：客户端请求有语法错误，不能被服务器所理解。
+
+* 401 Unauthorized：请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用。
+
+* 403 Forbidden：服务器收到请求，但是拒绝提供服务。
+
+* 404 Not Found：请求资源不存在，举个例子：输入了错误的URL。
+
+* 500 Internal Server Error：服务器发生不可预期的错误。
+
+* 503 Server Unavailable：服务器当前不能处理客户端的请求，一段时间后可能恢复正常，举个例子：HTTP/1.1 200 OK（CRLF）。
+
+### cookie与session区别：
+
+* cookie将状态保存在客户端，session将状态保存在服务端。
+
+* session相对于cookie要安全，但cookie不需要占用服务器的资源。
+
+* 单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。
+
+### https：
+
+**http与https的区别**
+
+* HTTP 无法加密，而HTTPS 对传输的数据进行加密，更加安全。
+
+* HTTP无需证书，而HTTPS 需要CA机构wosign的颁发的SSL证书。
+
+* HTTP 标准端口是80 ，而 HTTPS 的标准端口是443。
+
+* 在OSI 网络模型中，HTTP工作于应用层，而HTTPS 的安全传输机制工作在传输层。
 
 
+[TCP三次握手及四次挥手](https://www.jianshu.com/p/a1ebc61ce141)
 
-
-
+[https工作原理](https://blog.csdn.net/sean_cd/article/details/6966130)
