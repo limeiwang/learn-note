@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>async await详解 | Limw</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="Limw,源码解析,前端,Vue,Vue3,Es6,Javascript">
+    
+    <link rel="preload" href="/assets/css/0.styles.d95bcb34.css" as="style"><link rel="preload" href="/assets/js/app.c5eb3129.js" as="script"><link rel="preload" href="/assets/js/2.ee048be7.js" as="script"><link rel="preload" href="/assets/js/37.58ce85fa.js" as="script"><link rel="prefetch" href="/assets/js/10.7ec9e105.js"><link rel="prefetch" href="/assets/js/11.a850dc6b.js"><link rel="prefetch" href="/assets/js/12.8c2ee3d2.js"><link rel="prefetch" href="/assets/js/13.41cdd149.js"><link rel="prefetch" href="/assets/js/14.6a3bae65.js"><link rel="prefetch" href="/assets/js/15.c48ee866.js"><link rel="prefetch" href="/assets/js/16.1569f437.js"><link rel="prefetch" href="/assets/js/17.a5b9bfa5.js"><link rel="prefetch" href="/assets/js/18.fe3744ea.js"><link rel="prefetch" href="/assets/js/19.2ef0fe4a.js"><link rel="prefetch" href="/assets/js/20.a44045f9.js"><link rel="prefetch" href="/assets/js/21.694376a1.js"><link rel="prefetch" href="/assets/js/22.bac5e4a6.js"><link rel="prefetch" href="/assets/js/23.feeaf889.js"><link rel="prefetch" href="/assets/js/24.23228a16.js"><link rel="prefetch" href="/assets/js/25.9edf1021.js"><link rel="prefetch" href="/assets/js/26.047c6a63.js"><link rel="prefetch" href="/assets/js/27.af2147ab.js"><link rel="prefetch" href="/assets/js/28.87897bc5.js"><link rel="prefetch" href="/assets/js/29.457ab05c.js"><link rel="prefetch" href="/assets/js/3.4062c57c.js"><link rel="prefetch" href="/assets/js/30.6016479d.js"><link rel="prefetch" href="/assets/js/31.519e67c5.js"><link rel="prefetch" href="/assets/js/32.027210a7.js"><link rel="prefetch" href="/assets/js/33.ef834baa.js"><link rel="prefetch" href="/assets/js/34.1907bbb2.js"><link rel="prefetch" href="/assets/js/35.1e19d6e3.js"><link rel="prefetch" href="/assets/js/36.8b4d2db8.js"><link rel="prefetch" href="/assets/js/38.7b61240e.js"><link rel="prefetch" href="/assets/js/4.ae293354.js"><link rel="prefetch" href="/assets/js/5.445f0774.js"><link rel="prefetch" href="/assets/js/6.2807f7f4.js"><link rel="prefetch" href="/assets/js/7.66899ed6.js"><link rel="prefetch" href="/assets/js/8.4aee3ab7.js"><link rel="prefetch" href="/assets/js/9.6d8320be.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d95bcb34.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Limw</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="https://www.baidu.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Guide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/lmw0221" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="https://www.baidu.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Guide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/lmw0221" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>深入浅出 Vue3</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue2 &amp;&amp; React</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>计算机基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>算法基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>前端基础</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/css/mobile.html" class="sidebar-link">移动端-适配</a></li><li><a href="/css/layout.html" class="sidebar-link">PC端-布局</a></li><li><a href="/sse/optimization.html" class="sidebar-link">性能优化</a></li><li><a href="/sse/async_await.html" aria-current="page" class="active sidebar-link">async await</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/sse/module.html" class="sidebar-link">模块化</a></li><li><a href="/sse/event_loop.html" class="sidebar-link">JS运行机制</a></li><li><a href="/browser/garbage_collection.html" class="sidebar-link">JS垃圾回收机制</a></li><li><a href="/review/css_base.html" class="sidebar-link">CSS基础篇</a></li><li><a href="/review/js_type.html" class="sidebar-link">JS数据类型篇</a></li><li><a href="/review/js_function.html" class="sidebar-link">JS函数篇</a></li><li><a href="/review/webpack.html" class="sidebar-link">Webpack篇</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>手写代码合集</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>经验之谈</span> <span class="arrow right"></span></p> <!----></section></li><li><a href="/Node.html" class="sidebar-link">Node</a></li><li><a href="/TypeScript.html" class="sidebar-link">TypeScript</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="async-await详解"><a href="#async-await详解" class="header-anchor">#</a> async await详解</h1> <blockquote><p><code>async await</code>本身就是<code>promise + generator</code>的语法糖。</p></blockquote> <p>会讲述以下内容</p> <ol><li>async awiat 实质 || 降级策略</li> <li>async await 主要特性</li></ol> <h3 id="async-await-实质-降级策略"><a href="#async-await-实质-降级策略" class="header-anchor">#</a> async await 实质 &amp;&amp; 降级策略</h3> <div class="language- extra-class"><pre class="language-text"><code>    // 转换目标 async1
+
+    // async function async1() {
+    //    console.log('async1 start');
+    //    await async2();
+    //    console.log('async1 end');
+    // }
+</code></pre></div><p>下面使用 promise + generate 实现 async await</p> <div class="language- extra-class"><pre class="language-text"><code>    function async1() {
+        // 将 async 转换成 *，将 awiat 转换成 yield
+        var awaitInstance = (function* () {
+            console.log('async1 start');
+            yield async2();
+            console.log('async1 end');
+        })()
+
+        // 自动执行 await 及后续代码
+        // 简单起见，不处理异常情况
+        function step() {
+            var next = awaitInstance.next();
+            // 使用Promise获取 异步/同步 方法的结果，再执行下一步
+            Promise.resolve(next.value).then(function (val) {
+                if (!next.done) step();
+            })
+        }
+        step();
+
+        // 返回Promise
+        return Promise.resolve(undefined);
+    }
+</code></pre></div><p>将上述代码完善异常操作，得到async await的降级策略，只要AST 将 async 转换成 *，将 awiat 转换成 yield，就能实现降级。</p> <div class="language- extra-class"><pre class="language-text"><code>    function async1(args) {
+        return myAsyncAwait(function* () {
+            console.log('async1 start');
+            yield async2();
+            console.log('async1 end');
+        });
+    }
+
+    function myAsyncAwait(genFn) {
+        return new Promise(function(resolve, reject) {
+            const gen = genFn();
+            function step(nextFn) {
+                let next;
+                try {
+                    next = nextFn();
+                } catch(e) {
+                    return reject(e);
+                }
+                if(next.done) {
+                    return resolve(next.value);
+                }
+                Promise.resolve(next.value).then(function(v) {
+                    step(function() { return gen.next(v); });
+                }, function(e) {
+                    step(function() { return gen.throw(e); });
+                });
+            }
+            step(function() { return gen.next(undefined); });
+        });
+    }
+</code></pre></div><h3 id="async-await-特性"><a href="#async-await-特性" class="header-anchor">#</a> async await 特性</h3> <ol><li>async 一定会返回 promise</li> <li>async、 await、Promise.resolve() 都是（同步任务）</li> <li>而await 后续代码都会被推到 microtask 中。等await执行完成后触发。
+<ul><li>完成可能是：代码全部完成执行通过 || 或者最终被<code>.catch</code>（其实也是算都执行执行）</li> <li>如果有未被捕获的异常，就不会进入await下一步（毕竟await的下一步也类似于推到了then中）</li></ul></li></ol> <div class="language- extra-class"><pre class="language-text"><code>    console.log(1);
+
+    async function fn() {
+        console.log(2);
+        await console.log(3);
+        await Promise.resolve(4).then(console.log);;
+        console.log(5);
+
+        // 上面的写法类似于
+        // console.log(2);
+        // console.log(3);
+        // Promise.resolve(4)
+        //   .then(console.log);
+        //   .then(() =&gt; {
+        //     console.log(4);
+        // })
+     }
+    fn();
+
+    console.log(6);
+
+    // 打印 1 2 3 6 4 5
+</code></pre></div><ol><li>可以用await接收async的结果。然后赋值给变量</li></ol> <div class="language- extra-class"><pre class="language-text"><code>    async function fn() {
+        return Promise.resolve('xxxx');
+    }
+
+    async function fn2() {
+        let x = await fn();
+        console.log('x', xxx); // 输出的是值而不是Promise 
+    }
+
+    fn2()
+</code></pre></div><ol start="5"><li>await  操作符用于等待一个Promise 对象。它只能在异步函数 async function 中使用。参考 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/await" target="_blank" rel="noopener noreferrer">MDN<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ol> <div class="language- extra-class"><pre class="language-text"><code>    附：
+    在chrome版本 73.0.3683.86（64 位）中,
+    await是可以直接使用的。
+
+    var x = await console.log(1)
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/sse/optimization.html" class="prev">
+        性能优化
+      </a></span> <span class="next"><a href="/sse/module.html">
+        模块化
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.c5eb3129.js" defer></script><script src="/assets/js/2.ee048be7.js" defer></script><script src="/assets/js/37.58ce85fa.js" defer></script>
+  </body>
+</html>
