@@ -1,24 +1,54 @@
-# 基本概念
+# 排序算法
 
 ### 冒泡排序
 ``` js
-let arr = [3, 4, 1, 2]
-let max = arr.length - 1
-for (let i = 0; i < max; i++) {
-    // 声明一个变量，作为标志位
-    // 如果某次循环完后，没有任何两数进行交换，就将标志位设置为 true，表示排序完成
-    let flag = true
-    for (let j = 0; j < max - i; j++) {
-        if (arr[j] > arr[j + 1]) {
-            // 利用ES6数组的解构赋值交换数据
-            ;[arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
-            flag = false
-        }
+// 实现方式1
+let arr = [7, 4, 3, 67, 34, 1, 8]
+function buddle_sort(arr) {
+  let len = arr.length - 1
+  for (let j = 0; j < len; j++) {
+    for (let i = 0; i < len - j; i++) {
+      if (arr[i] > arr[i + 1]) {
+        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
+      }
     }
-    if (flag) {
-        break
-    }
+  }
 }
+buddle_sort(arr)
+
+// 实现方式2
+let arr1 = [7, 4, 3, 67, 34, 1, 8]
+function buddle_sort(arr, fn) {
+  let len = arr.length
+  let count = 0
+  while (len--) {
+    for (let i = 0; i < len; i++) {
+      if (arr[i] > arr[i + 1]) {
+        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
+        count++
+      }
+    }
+    if (count == 0) {
+      return
+    }
+  }
+}
+buddle_sort(arr1)
+
+// 蚂蚁金服面试
+function buddle_sort(arr, fn) {
+  let len = arr.length
+  while (len--) {
+    for (let i = 0; i < len; i++) {
+      if (fn(arr[i], arr[i + 1]) > 0) {
+        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
+      }
+    }
+  }
+}
+
+let arr = [7, 4, 3, 67, 34, 1, 8]
+buddle_sort(arr, (a, b) => a - b)
 ```
 
 ### 快速排序
@@ -44,3 +74,7 @@ var quickSort = function(arr) {
 }
 quickSort(arr);
 ```
+
+### todo
+
+插入排序、二分查找、选择排序、希尔排序、归并排序、堆排序、计数排序、桶排序、基数排序

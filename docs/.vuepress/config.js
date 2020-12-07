@@ -96,6 +96,14 @@ module.exports = {
                         path: '/sse/optimization.md',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
                     },
                     {
+                        title: 'async await',   // 必要的
+                        path: '/sse/async_await.md',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                    },
+                    {
+                        title: '模块化',   // 必要的
+                        path: '/sse/module.md',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                    },
+                    {
                         title: 'JS运行机制',   // 必要的
                         path: '/sse/event_loop',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
                     },
