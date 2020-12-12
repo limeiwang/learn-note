@@ -303,3 +303,59 @@ console.log(getName()); // 'opp'
 console.log(Person.prototype.getName()); // 'Person'
 console.log(p.getName); // 'lili'
 ```
+
+---
+继承
+---
+>需求：
+>1. 普通用户
+>2. 会员用户
+>3. 会员用户需要拥有普通用户的所有功能，并且自身也要有自己的功能
+>4. 实现一个inhreit函数，具备能够使用Man函数继承Person函数的能力
+``` js
+/**
+ * 对象的继承
+ * @param {Function} SubClass 子类构造函数
+ * @param {Function} SuperClass 父类构造函数
+ */
+function inhreit(SubClass, SuperClass) {
+    son.prototype = Object.create(SuperClass.prototype);
+    son.prototype.constructor = SubClass;
+    son.prototype.uber = SuperClass.prototype;
+}
+
+/**
+ * 普通用户构造函数
+ * @param {*} firstName 
+ * @param {*} lastName 
+ * @param {*} age 
+ */
+function User(firstName, lastName, age) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.fullName = this.firstName + " " + this.lastName;
+}
+// 普通用户构造函数的方法
+User.prototype.sayHello = function () {
+    console.log(`大家好，我叫${this.fullName}, 加年${this.age}了`);
+}
+
+/**
+ * 会员用户构造函数
+ * @param {*} firstName 
+ * @param {*} lastName 
+ * @param {*} age 
+ * @param {*} money
+ */
+function VIPUser(firstName, lastName, age, money) {
+    User.call(this, firstName, lastName, age);
+    this.money = money;
+}
+VIPUser.prototype.upgrade = function () {
+    console.log(`使用了${100}元软妹币升级了`);
+    this.money -= 100;
+}
+
+var vUser = new VIPUser("晓", "佰", 10, 100);  // 调用构造函数
+```
