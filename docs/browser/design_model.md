@@ -221,3 +221,75 @@ console.log(
     wheel.turn();
     oil.warn();
 ```
+
+### 观察者模式
+>由观察者和观察者组成。通过观察者调用被观察者的实例。
+
+观察者模式：观察者对象和被观察者对象 之间的订阅和触发事件
+
+使用场景案例：“Vue 双向绑定实现”
+
+简单的观察者模式: （仿 Vue 实现）
+``` js
+// 观察者
+class Dep {
+    constructor() {
+        this.subs = []
+    }
+    
+    addSub(sub) {
+        this.subs.push(sub)
+    }
+    
+    depend() {
+        if (Dep.target) { 
+            Dep.target.addDep(this);
+        }
+    }
+    
+    notify() {
+        this.subs.forEach(sub => sub.update())
+    }
+}
+
+// 被观察者
+class Watcher {
+    constructor(vm, expOrFn) {
+        this.vm = vm;
+        this.getter = expOrFn;
+        this.value;
+    }
+
+    get() {
+        Dep.target = this;
+        
+        var vm = this.vm;
+        var value = this.getter.call(vm, vm);
+        return value;
+    }
+
+    evaluate() {
+        this.value = this.get();
+    }
+
+    addDep(dep) {
+        dep.addSub(this);
+    }
+    
+    update() {
+        console.log('更新, value:', this.value)
+    }
+}
+
+// 观察者实例
+var dep = new Dep();
+
+//  被观察者实例
+var watcher = new Watcher({x: 1}, (val) => val);
+watcher.evaluate();
+
+// 观察者监听被观察对象
+dep.depend()
+
+dep.notify()
+```
