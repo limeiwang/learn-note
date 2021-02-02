@@ -12,7 +12,7 @@ module.exports = {
     themeConfig: {
         nav: [
             { text: 'Home', link: '/' },
-            { text: 'Guide', link: 'https://www.baidu.com' },
+            { text: 'Blog', link: 'https://lmw0221.github.io/' },
             { text: 'GitHub', link: 'https://github.com/lmw0221' },
         ],
         sidebar: [
