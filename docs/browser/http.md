@@ -250,5 +250,6 @@ protected voiddoGet(HttpServletRequest request, HttpServletResponse response) th
 ```
 
 #### application/json
+>后台如何接收?使用request.getReader()取值，也可以使用request.getInputStream()获取。
 
-后台如何接收?使用request.getReader()取值，也可以使用request.getInputStream()获取。
+
