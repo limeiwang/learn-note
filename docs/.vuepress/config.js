@@ -94,7 +94,8 @@ module.exports = {
                     {
                         title: '性能优化',   // 必要的
                         path: '/sse/optimization.md',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-                    },
+					},
+					
                     {
                         title: 'async await',   // 必要的
                         path: '/sse/async_await.md',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
@@ -110,6 +111,10 @@ module.exports = {
                     {
                         title: 'JS垃圾回收机制',   // 必要的
                         path: '/browser/garbage_collection',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+					},
+					{
+                        title: 'Promise',   // 必要的
+                        path: '/review/js_promise',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
                     },
                     {
                         title: 'CSS基础篇',   // 必要的

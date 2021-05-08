@@ -29,3 +29,18 @@ Promise的 prototype
 2. Promise.prototype.then(onFulfilled, onRejected)
 3. Promise.prototype.finally(onFinally)
 
+### 个人理解
+
+Promise本身是一个状态机，具有以下3个状态
+
+- pending（等待）
+- fulfilled（成功）
+- rejected（拒绝）
+
+当请求发送没有得到响应的时候为pending状态，得到响应后会resolve(决议)当前这个Promise实例,将它变为fulfilled/rejected(大部分情况会变为fulfilled)
+
+当请求发生错误后会执行reject(拒绝)将这个Promise实例变为rejected状态
+
+一个Promise实例的状态只能从pending => fulfilled 或者从 pending => rejected，即当一个Promise实例从pending状态改变后，就不会再改变了（不存在fulfilled => rejected 或 rejected => fulfilled）
+
+而Promise实例必须主动调用then方法，才能将值从Promise实例中取出来（前提是Promise不是pending状态）
