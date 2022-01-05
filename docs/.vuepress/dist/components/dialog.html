@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>dialog 弹窗组件 | learn-note</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    
+    <meta name="description" content="源码解析,前端,Vue,Vue3,Es6,Javascript">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.dfe1bb82.js" as="script"><link rel="preload" href="/assets/js/2.89137ec1.js" as="script"><link rel="preload" href="/assets/js/22.7ce062f7.js" as="script"><link rel="prefetch" href="/assets/js/10.dea226fa.js"><link rel="prefetch" href="/assets/js/11.04646d32.js"><link rel="prefetch" href="/assets/js/12.b42aa9ae.js"><link rel="prefetch" href="/assets/js/13.5acb86e1.js"><link rel="prefetch" href="/assets/js/14.48b83737.js"><link rel="prefetch" href="/assets/js/15.dcccab75.js"><link rel="prefetch" href="/assets/js/16.e2ca7486.js"><link rel="prefetch" href="/assets/js/17.60b7627d.js"><link rel="prefetch" href="/assets/js/18.46ef93fc.js"><link rel="prefetch" href="/assets/js/19.e2df8b68.js"><link rel="prefetch" href="/assets/js/20.94fcb902.js"><link rel="prefetch" href="/assets/js/21.b72b3a6e.js"><link rel="prefetch" href="/assets/js/23.5c2084ac.js"><link rel="prefetch" href="/assets/js/24.9106f9bd.js"><link rel="prefetch" href="/assets/js/25.1c2e1bd2.js"><link rel="prefetch" href="/assets/js/26.55c9e9e7.js"><link rel="prefetch" href="/assets/js/27.da0d4bc0.js"><link rel="prefetch" href="/assets/js/28.ec8023aa.js"><link rel="prefetch" href="/assets/js/29.38644e78.js"><link rel="prefetch" href="/assets/js/3.8263c1af.js"><link rel="prefetch" href="/assets/js/30.23a50e85.js"><link rel="prefetch" href="/assets/js/31.b6e2fb06.js"><link rel="prefetch" href="/assets/js/32.e8c8c3a5.js"><link rel="prefetch" href="/assets/js/33.aceda016.js"><link rel="prefetch" href="/assets/js/34.b5a174d8.js"><link rel="prefetch" href="/assets/js/35.4507ed63.js"><link rel="prefetch" href="/assets/js/36.497cbd58.js"><link rel="prefetch" href="/assets/js/37.8d2047b2.js"><link rel="prefetch" href="/assets/js/38.262fb00d.js"><link rel="prefetch" href="/assets/js/39.8014f8ea.js"><link rel="prefetch" href="/assets/js/4.b653ff46.js"><link rel="prefetch" href="/assets/js/40.c57f9258.js"><link rel="prefetch" href="/assets/js/41.98af353f.js"><link rel="prefetch" href="/assets/js/42.ae8c7121.js"><link rel="prefetch" href="/assets/js/43.23264f91.js"><link rel="prefetch" href="/assets/js/5.f2279379.js"><link rel="prefetch" href="/assets/js/6.bc93ed48.js"><link rel="prefetch" href="/assets/js/7.6d3aa1b8.js"><link rel="prefetch" href="/assets/js/8.f8de1013.js"><link rel="prefetch" href="/assets/js/9.a17c9783.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">learn-note</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="https://github.com/limeiwang" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="https://github.com/limeiwang" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>深入浅出 Vue3</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue2 &amp;&amp; React</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>计算机基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>算法基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>手写代码合集</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>经验之谈</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Vue组件</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/components/collapse.html" class="sidebar-link">折叠</a></li><li><a href="/components/transfer.html" class="sidebar-link">穿梭框</a></li><li><a href="/components/upload.html" class="sidebar-link">上次文件</a></li><li><a href="/components/dialog.html" aria-current="page" class="active sidebar-link">弹窗</a></li><li><a href="/components/loadmore.html" class="sidebar-link">滚动加载</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="dialog-弹窗组件"><a href="#dialog-弹窗组件" class="header-anchor">#</a> dialog 弹窗组件</h1> <blockquote><p>基于antdv组件</p></blockquote> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>pug<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    .model-dialog
+        a-modal(v-model=&quot;visible&quot; :title=&quot;title&quot; :class=&quot;isSpreadForm &amp;&amp; 'dialog-form '&quot; :destroy-on-close=&quot;true&quot;)
+            message(v-if=&quot;message&quot; :items=&quot;messageItems&quot;)
+            template(slot=&quot;footer&quot;)
+                a-button(key=&quot;back&quot; @click=&quot;handleCancel&quot;) 取消
+                a-button(key=&quot;submit&quot; type=&quot;primary&quot; :loading=&quot;loading&quot; @click=&quot;handleOk&quot;) {{confirmText}}
+            .insert-info
+                slot(name=&quot;insertInfo&quot;)
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">import</span> message <span class="token keyword">from</span> <span class="token string">'../message/message'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>EventTypes<span class="token punctuation">,</span> EventBus<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../../event/event-bus'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'modelDialog'</span><span class="token punctuation">,</span>
+
+  components<span class="token operator">:</span> <span class="token punctuation">{</span>
+    message
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      loading<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      messageItems<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    props<span class="token operator">:</span> <span class="token punctuation">{</span>
+        isShow<span class="token operator">:</span> <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> Boolean<span class="token punctuation">,</span>
+            <span class="token keyword">default</span><span class="token operator">:</span> <span class="token boolean">false</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        title<span class="token operator">:</span> <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> String<span class="token punctuation">,</span>
+            <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">'对话框'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        confirmText<span class="token operator">:</span> <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> String<span class="token punctuation">,</span>
+            <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">'确定'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        isSpreadForm<span class="token operator">:</span> <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> Boolean<span class="token punctuation">,</span>
+            <span class="token keyword">default</span><span class="token operator">:</span> <span class="token boolean">false</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        loadingFlag<span class="token operator">:</span> <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> Boolean<span class="token punctuation">,</span>
+            <span class="token keyword">default</span><span class="token operator">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    message<span class="token operator">:</span> <span class="token punctuation">{</span>
+      type<span class="token operator">:</span> Boolean<span class="token punctuation">,</span>
+            <span class="token keyword">default</span><span class="token operator">:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  computed<span class="token operator">:</span> <span class="token punctuation">{</span>
+    visible<span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token function">get</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>isShow<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token function">set</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'closemodel'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token function">handleOk</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>loadingFlag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'handleok'</span><span class="token punctuation">)</span> 
+              <span class="token keyword">return</span>
+          <span class="token punctuation">}</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span>loading <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+          <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+              <span class="token keyword">this</span><span class="token punctuation">.</span>loading <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+              <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'handleok'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token function">handleCancel</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token comment">// 关闭模态对话框</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'closemodel'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    EventBus<span class="token punctuation">.</span><span class="token function">$on</span><span class="token punctuation">(</span>EventTypes<span class="token punctuation">.</span><span class="token constant">SYNCLINK_MESSAGE</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>type<span class="token punctuation">,</span> message<span class="token punctuation">,</span> duration<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token comment">// A发送来的消息</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>messageItems <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+        type<span class="token punctuation">,</span>
+        message<span class="token punctuation">,</span>
+        duration
+      <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>less<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">.ant-modal</span>  <span class="token punctuation">{</span>
+    <span class="token selector">&amp;-body</span> <span class="token punctuation">{</span>
+      <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+      <span class="token selector">.message</span> <span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+        <span class="token property">z-index</span><span class="token punctuation">:</span> 9999<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/components/upload.html" class="prev">
+        上次文件
+      </a></span> <span class="next"><a href="/components/loadmore.html">
+        滚动加载
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.dfe1bb82.js" defer></script><script src="/assets/js/2.89137ec1.js" defer></script><script src="/assets/js/22.7ce062f7.js" defer></script>
+  </body>
+</html>
