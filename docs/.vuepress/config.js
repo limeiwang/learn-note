@@ -1,7 +1,7 @@
 module.exports = {
-    title: 'Limw',
-    keys: "Limw,源码解析,前端,Vue,Vue3,Es6,Javascript",
-    description: 'Limw,源码解析,前端,Vue,Vue3,Es6,Javascript',
+    title: 'learn-note',
+    keys: "源码解析,前端,Vue,Vue3,Es6,Javascript",
+    description: '源码解析,前端,Vue,Vue3,Es6,Javascript',
     configureWebpack: {
         resolve: {
             alias: {
