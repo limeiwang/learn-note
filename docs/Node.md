@@ -32,14 +32,3 @@ Node.js异步编程的直接体现就是回调，Node所有API都支持回调函
 ### module
 1. module对象，代表当前模块
 2. module.exports 初始是一个空{}
-
-
-## npm
-
-## 内置模块
-
-## Buffer
-
-## Express
-
-## KOA

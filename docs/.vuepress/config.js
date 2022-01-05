@@ -12,156 +12,178 @@ module.exports = {
     themeConfig: {
         nav: [
             { text: 'Home', link: '/' },
-            { text: 'Blog', link: 'https://lmw0221.github.io/' },
-            { text: 'GitHub', link: 'https://github.com/lmw0221' },
+            { text: 'GitHub', link: 'https://github.com/limeiwang' },
         ],
         sidebar: [
             {
                 title: '深入浅出 Vue3',
                 children: [
                     {
-                      title: 'vite篇',   // 必要的
-                      path: '/resource-analysis/vue3_vite',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                      title: 'vite篇',
+                      path: '/resource-analysis/vue3_vite',
                     },
                     {
-                        title: 'reactive篇',   // 必要的
-                        path: '/resource-analysis/vue3_reactive',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: 'reactive篇',
+                        path: '/resource-analysis/vue3_reactive',
                     },
                     {
-                        title: 'effect篇',   // 必要的
-                        path: '/resource-analysis/vue3_effect',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: 'effect篇',
+                        path: '/resource-analysis/vue3_effect',
                     },
                     {
-                        title: 'ref和computed',   // 必要的
-                        path: '/resource-analysis/vue3_computed',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: 'ref和computed',
+                        path: '/resource-analysis/vue3_computed',
                     }
                 ]
             },
             {
-                title: 'Vue2 && React',   // 必要的
+                title: 'Vue2 && React',
                 children: [
                     {
-                        title: 'Vue 2.x 源码解析',   // 必要的
-                        path: '/resource-analysis/vue2',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: 'Vue 2.x 源码解析',
+                        path: '/resource-analysis/vue2',
                     },
                     {
-                        title: 'React 简况',   // 必要的
-                        path: '/mvvm/react',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: 'React 简况',
+                        path: '/mvvm/react',
                     }
                 ]
             },
             {
-                title: '计算机基础',   // 必要的
+                title: '计算机基础',
                 children: [
                     {
-                        title: '前端安全性',   // 必要的
-                        path: '/browser/security_code',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: '前端安全性',
+                        path: '/browser/security_code',
                     },
                     {
-                        title: '关于Http',   // 必要的
-                        path: '/browser/http',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: '关于Http',
+                        path: '/browser/http',
                     },
                     {
-                        title: '页面加载过程',   // 必要的
-                        path: '/browser/page_load',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: '页面加载过程',
+                        path: '/browser/page_load',
                     },
                     {
-                        title: '设计模式',   // 必要的
-                        path: '/browser/design_model',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: '设计模式',
+                        path: '/browser/design_model',
                     },
                 ]
             },
             {
-                title: '算法基础',   // 必要的
+                title: '算法基础',
                 children: [
                   {
-                    title: '基本概念',   // 必要的
-                    path: '/algorithm/base',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                    title: '基本概念',
+                    path: '/algorithm/base',
                   },
                 ]
             },
             {
-                title: '前端基础',   // 必要的
+                title: '前端基础',
                 children: [
                     {
-                        title: '移动端-适配',   // 必要的
-                        path: '/css/mobile.md',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: '移动端-适配',
+                        path: '/css/mobile.md',
                     },
                     {
-                        title: 'PC端-布局',   // 必要的
-                        path: '/css/layout.md',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: 'PC端-布局',
+                        path: '/css/layout.md',
                     },
                     {
-                        title: '性能优化',   // 必要的
-                        path: '/sse/optimization.md',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: '性能优化',
+                        path: '/sse/optimization.md',
 					},
 					
                     {
-                        title: 'async await',   // 必要的
-                        path: '/sse/async_await.md',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: 'async await',
+                        path: '/sse/async_await.md',
                     },
                     {
-                        title: '模块化',   // 必要的
-                        path: '/sse/module.md',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: '模块化',
+                        path: '/sse/module.md',
                     },
                     {
-                        title: 'JS运行机制',   // 必要的
-                        path: '/sse/event_loop',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: 'JS运行机制',
+                        path: '/sse/event_loop',
                     },
                     {
-                        title: 'JS垃圾回收机制',   // 必要的
-                        path: '/browser/garbage_collection',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: 'JS垃圾回收机制',
+                        path: '/browser/garbage_collection',
 					},
 					{
-                        title: 'Promise',   // 必要的
-                        path: '/review/js_promise',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: 'Promise',
+                        path: '/review/js_promise',
                     },
                     {
-                        title: 'CSS基础篇',   // 必要的
-                        path: '/review/css_base',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: 'CSS基础篇',
+                        path: '/review/css_base',
                     },
                     {
-                        title: 'JS数据类型篇',   // 必要的
-                        path: '/review/js_type',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: 'JS数据类型篇',
+                        path: '/review/js_type',
                     },
                     {
-                        title: 'JS函数篇',   // 必要的
-                        path: '/review/js_function',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: 'JS函数篇',
+                        path: '/review/js_function',
                     },
                     {
-                        title: 'Webpack篇',   // 必要的
-                        path: '/review/webpack',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: 'Webpack篇',
+                        path: '/review/webpack',
                     }
                 ]
             },
             {
-                title: '手写代码合集',   // 必要的
+                title: '手写代码合集',
                 children: [
                   {
-                    title: '各种手写代码实现 ',   // 必要的
-                    path: '/review/js_code',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                    title: '各种手写代码实现 ',
+                    path: '/review/js_code',
                   },
                 ]
             },
             {
-                title: '经验之谈',   // 必要的
+                title: '经验之谈',
                 children: [
                     {
-                        title: 'git命令 ',   // 必要的
-                        path: '/other/git',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: 'git命令 ',
+                        path: '/other/git',
                     },
                     {
-                        title: '面试问题',   // 必要的
-                        path: '/other/interview',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: '面试问题',
+                        path: '/other/interview',
                     },
                     {
-                        title: 'node经验包',   // 必要的
-                        path: '/other/node',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                        title: 'node经验包',
+                        path: '/other/node',
                     },
                 ]
             },
-            '/Node', 
-            '/TypeScript', 
+            {
+              title: 'Vue组件',
+              children: [
+                {
+                  title: '折叠',
+                  path: 'components/collapse'
+                },
+                {
+                  title: '穿梭框',
+                  path: 'components/transfer'
+                },
+                {
+                  title: '上次文件',
+                  path: 'components/upload'
+                },
+                {
+                  title: '弹窗',
+                  path: 'components/dialog'
+                },
+                {
+                  title: '滚动加载',
+                  path: 'components/loadmore'
+                }
+              ]
+            }
         ]
       }
   }
